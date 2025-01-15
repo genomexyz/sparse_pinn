@@ -179,10 +179,12 @@ v = df["v_mean"].values
 p = df["p_mean"].values
 uv = df["uv"].values
 
-u[y < hill_height] = np.nan
-v[y < hill_height] = np.nan
-p[y < hill_height] = np.nan
-uv[y < hill_height] = np.nan
+hill_height2d = cosine_hill(x)
+
+u[y < hill_height2d] = np.nan
+v[y < hill_height2d] = np.nan
+p[y < hill_height2d] = np.nan
+uv[y < hill_height2d] = np.nan
 
 #u_torch = torch.from_numpy(u)
 #v_torch = torch.from_numpy(v)
